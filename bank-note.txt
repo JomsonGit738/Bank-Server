@@ -1,0 +1,66 @@
+
+----------------------creating BANK SERVER-----------------------------
+
+1. need to install=> default packages like...
+
+    - npm init -y (to get package.json)
+    - npm i express cors dotenv
+
+    - install default packages
+    - install dotenv (dotenv = enviorment variables file - to get current values in working) 
+    - install CORS (share data with diff. ports)
+    - install ExpressJS
+
+2. create .gitignore   
+3. create .env file 
+4. update package.json with start command => "start": "node index.js"
+5. create index.js file
+6. start creating express server in index.js file
+    - import dotenv in index.js
+    - import Express in index.js
+    - import CORS in index.js
+    - create express server
+    - set up the port for server to deploy
+    - use cors, json parser in server app
+    - run athe server app in a specified port
+
+    * to resolve http request using express server
+        server.get('/',(request,response)=>{
+
+             response.send("bank server started...")
+
+        })
+    * install nodemon for live recompilation  
+        - it is installing globally, useful for another projects
+        - npm install -g nodemon  
+7. create database and collection in mongodb atlas, copy the connection string
+8. paste collection string in .env file with password and database name
+    eg. DATABASE = mongodb+srv://randomweins007:jomsonjohny@cluster0.f6oz9nh.mongodb.net/bank?retryWrites=true&w=majority
+9. define steps to connect ode app with mongodb database 
+    - create db folder, define db conneciton, create a connection.js file 
+    - install mangoose from : npm i mongoose 
+    - import mongoose in connection.js
+    - get connection string from .env file to connection.js file
+        - get to connection string from .env file: process.env
+    - connect node app using connection string with mongoose    
+    - import connection.js in index.js
+10. define schema for model/collection in db 
+    - create model folder, create userShema.js file
+    - import mongoose in userSchema.js file
+    - using mongoose, define schema for users 
+    - creat a model / collection to store documents as given schema 
+        (make sure same name of collection with plural form)
+    - export model to import in another files
+11. To define logic to resolve http request
+    - create a controller folder in server folder, create userController.js file 
+    - import model in userController.js file
+    - define and export logic to resolve different http client request
+12. Create routes to resolve client request 
+    - create Routes folder in server folder, to define Route create router.js file 
+    - in router.js file\
+        - import express
+        - import controller
+        - create routes using express.Router() class (setting up router)
+        - define routes to resolve http request
+    - export router to use in index.js    
+    - import router in index.js
